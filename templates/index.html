@@ -17,7 +17,9 @@
         <input type="submit" name="take_quiz" id="take_quiz" value="Take Quiz">
         <br><br>
     </form>
-    {% if sentiment_label %}
+    {% if mcq %}
+        {% for row in mcq %}
+        {% endfor %}
         <p id="sentiment_label">{{selected_model}} model predicted: {{ sentiment_label }}</p>
 
     {% endif %}
