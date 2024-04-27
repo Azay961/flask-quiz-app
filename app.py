@@ -9,12 +9,11 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('questions.html')
+    return render_template('index.html')
 # taking quiz
 @app.route('/take_quiz', methods=['POST'])
-def predict_sentiment():
-    subject = request.form['select_subject']
-    file_path = os.path.join("Questions", f"{subject}.csv")
+def take_quiz():
+    file_path = os.path.join("Questions", "Computer Network.csv")
     # Load a DataFrame with randomly selected 5 rows
     random_df = pd.read_csv(file_path).sample(n=5)
     
@@ -29,7 +28,8 @@ def add_questions():
     option2 = request.form["option2"]
     option3 = request.form["option3"]
     option4 = request.form["option4"]
-    correct_answer = request.form["correct_answer"]
+
+    correct_answer = request.form.getlist('Answer')
 
     # Create a DataFrame
     data = {'Questions': question, 'option1':[option1], 'option2': [option2], 'option3': [option3], "option4": [option4], "correct_answer": [correct_answer]}

@@ -71,3 +71,12 @@ h3{
     border-radius:5px; 
     margin: 5px;
 }
+p{
+    color: #08ffd1;
+}
+.single-line-paragraph {
+    width: 500px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Optional: Adds ellipsis (...) if the content overflows the container */
+}

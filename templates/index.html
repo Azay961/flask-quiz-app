@@ -8,21 +8,25 @@
     <div class="quiz">
     <form id="take_quiz" method="post" action = "/take_quiz">
       
-        <h3>Select Subject</h3>
+        <!-- <h3>Select Subject</h3>
         <select name="select_subject">
         <option value="Computer Network">Computer Network</option>
         <option value="Random Forest">Random Forest</option>
-        </select><br><br>
+        </select><br><br> -->
 
-        <input type="submit" name="take_quiz" id="take_quiz" value="Take Quiz">
+        {% if mcq %}
+        {% for row in mcq %}
+        <p>{{row["Questions"]}}<br>
+            <input type="checkbox" name="Answer" value="option1">{{row["option1"]}}<br>
+            <input type="checkbox" name="Answer" value="option2">{{row["option2"]}}<br>
+            <input type="checkbox" name="Answer" value="option3">{{row["option3"]}}<br>
+            <input type="checkbox" name="Answer" value="option4">{{row["option4"]}}<br>
+            </p>
+        {% endfor %}
+        {% endif %}
+        <input type="submit" name="take_quiz" id="take_quiz" value="Submit">
         <br><br>
     </form>
-    {% if mcq %}
-        {% for row in mcq %}
-        {% endfor %}
-        <p id="sentiment_label">{{selected_model}} model predicted: {{ sentiment_label }}</p>
-
-    {% endif %}
 </div>
 </body>
 </html>
