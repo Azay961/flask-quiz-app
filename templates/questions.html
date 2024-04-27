@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Questions</title>
+    <link rel="stylesheet" href="/static/style_questions.css">
+</head>
+<body>
+    <div class="quiz">
+    <form id="add_questions" method="post" action = "/add_questions">
+      
+        <h3>Select Subject</h3>
+        <select name="select_subject">
+        <option value="Computer Network">Computer Network</option>
+        <option value="Random Forest">Random Forest</option>
+        </select><br><br>
+        
+        <textarea id="question" name="question" rows="4" cols="50" placeholder="Type question here"></textarea><br>
+        <input type="text" id="option1" name="option1" placeholder="option1"><br>
+        <input type="text" id="option2" name="option2" placeholder="option2"><br>
+        <input type="text" id="option3" name="option3" placeholder="option3"><br>
+        <input type="text" id="option4" name="option4" placeholder="option4"><br>
+        <input type="text" id="correct_answer" name="correct_answer" placeholder="Correct Answer">
+
+        <input type="submit" name="add" id="add" value="Add">
+        <br><br>
+    </form>
+</body>
+</html>

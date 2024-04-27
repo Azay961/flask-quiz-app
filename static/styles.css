@@ -1,3 +1,4 @@
+
 body
 {
     margin: 0;
@@ -5,9 +6,9 @@ body
     background-color:#6abadeba;
     font-family: 'Arial';
 }
-.engine{
-        width: 600px;
-        height: 800px;
+.quiz{
+        width: 382px;
+        height: 500px;
         overflow: hidden;
         margin: auto;
         margin: 20 0 0 450px;
@@ -21,11 +22,22 @@ h2{
     color: #277582;
     padding: 20px;
 }
+h3{
+    color: #08ffd1;
+}
 
-#computer_organization{
+#select_subject{
+    margin-top: 0px;
+    color: blue;
+    font-size: 17px;
+}
+
+#take_quiz{
     width: 300px;
     height: 30px;
     border: none;
-    border-radius: 3px;
-    padding-left: 8px;
+    border-radius: 17px;
+    padding-left: 7px;
+    color: blue;
+
 }

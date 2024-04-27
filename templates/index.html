@@ -1,16 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Search Engine</title>
+    <title>Quiz App</title>
     <link rel="stylesheet" href="/static/styles.css"></head>
 <body>
-    <h2>Search Engine</h2><br>
-    <div class="engine">
-    <form id="engine" method="post" action = "/computer_organization">
-        <input type="submit" name="computer_organization" id="computer_organization" value="computer organization">
+    <h2>Sentiment Prediction</h2><br>
+    <div class="quiz">
+    <form id="take_quiz" method="post" action = "/take_quiz">
+      
+        <h3>Select Subject</h3>
+        <select name="select_subject">
+        <option value="Computer Network">Computer Network</option>
+        <option value="Random Forest">Random Forest</option>
+        </select><br><br>
+
+        <input type="submit" name="take_quiz" id="take_quiz" value="Take Quiz">
         <br><br>
     </form>
+    {% if sentiment_label %}
+        <p id="sentiment_label">{{selected_model}} model predicted: {{ sentiment_label }}</p>
 
+    {% endif %}
 </div>
 </body>
 </html>
