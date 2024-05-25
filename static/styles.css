@@ -7,8 +7,8 @@ body
     font-family: 'Arial';
 }
 .quiz{
-        width: 382px;
-        height: 500px;
+        width: 500px;
+        height: 250px;
         overflow: hidden;
         margin: auto;
         margin: 20 0 0 450px;
@@ -32,7 +32,7 @@ p{
 }
 
 #take_quiz{
-    width: 300px;
+    width: 500px;
     height: 30px;
     border: none;
     border-radius: 17px;
