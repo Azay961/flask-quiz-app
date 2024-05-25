@@ -1,57 +1,55 @@
-
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, session
 import pandas as pd
 import os
 
-
 app = Flask(__name__)
+app.secret_key = "Azay"
 
-
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def index():
-    return render_template('index.html')
-# taking quiz
-@app.route('/take_quiz', methods=['POST'])
-def take_quiz():
-    file_path = os.path.join("Questions", "Computer Network.csv")
-    # Load a DataFrame with randomly selected 5 rows
-    random_df = pd.read_csv(file_path).sample(n=5)
-    
-    return render_template('index.html', mcq=random_df)
+    if request.method == 'POST':
+        
+        action = request.form.get('action')
 
-# Adding question to file
-@app.route("/add_questions", methods=["POST"])
-def add_questions():
-    subject = request.form['select_subject']
-    question = request.form["question"]
-    option1 = request.form["option1"]
-    option2 = request.form["option2"]
-    option3 = request.form["option3"]
-    option4 = request.form["option4"]
+        if action == 'Check Answer':
+            user_answer = request.form['option']
+            if session["correct_answer"] == user_answer.strip():
+                result = "Correct!"
+            else:
+                result = f"Incorrect. The correct answer is {session['correct_answer']}"
+            return render_template('index.html', question=session["question"], option_a=session["option_a"], option_b=session["option_b"], option_c=session["option_c"], option_d=session["option_d"], result=result)
+        
+        elif action == 'Next Question':
+            question, option_a, option_b, option_c, option_d, correct_answer = next_question()
+            session["correct_answer"] = correct_answer
+            session["question"] = question
+            session["option_a"] = option_a
+            session["option_b"] = option_b
+            session["option_c"] = option_c
+            session["option_d"] = option_d
+            return render_template('index.html', question=question, option_a=option_a, option_b=option_b, option_c=option_c, option_d=option_d)
 
-    correct_answer = request.form.getlist('Answer')
+    else:
+        question, option_a, option_b, option_c, option_d, correct_answer = next_question()
+        session["correct_answer"] = correct_answer
+        session["question"] = question
+        session["option_a"] = option_a
+        session["option_b"] = option_b
+        session["option_c"] = option_c
+        session["option_d"] = option_d
+        return render_template('index.html', question=question, option_a=option_a, option_b=option_b, option_c=option_c, option_d=option_d)
 
-    # Create a DataFrame
-    data = {'Questions': question, 'option1':[option1], 'option2': [option2], 'option3': [option3], "option4": [option4], "correct_answer": [correct_answer]}
-    df = pd.DataFrame(data)
+def next_question():
+    path = r'D:\my_projects\Flask_quiz_app\flask-quiz-app\Questions\questions.csv'
+    df = pd.read_csv(path).sample(1).iloc[0]
+    question = df['Question']
+    option_a = df['Option A']
+    option_b = df['Option B']
+    option_c = df['Option C']
+    option_d = df['Option D']
+    correct_answer = df['Correct Answer']
 
-    # Specify the directory path
-    directory = "Questions"
-
-    # Create the directory if it doesn't exist
-    if not os.path.exists(directory):
-        os.makedirs(directory)
-
-    # Specify the file path
-    file_path = os.path.join(directory, f"{subject}.csv")
-
-    file_exists = os.path.exists(file_path)
-
-    # Write DataFrame to CSV
-    df.to_csv(file_path, index=False, mode='a', header=not file_exists)
-
-    return render_template("questions.html")
+    return question, option_a, option_b, option_c, option_d, correct_answer
 
 if __name__ == "__main__":
     app.run(debug=True)
-    # host="0.0.0.0", port="5002"

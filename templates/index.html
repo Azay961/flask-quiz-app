@@ -2,31 +2,34 @@
 <html>
 <head>
     <title>Quiz App</title>
-    <link rel="stylesheet" href="/static/styles.css"></head>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
 <body>
-    <h2>Sentiment Prediction</h2><br>
+    <h2>Take a quiz</h2><br>
     <div class="quiz">
-    <form id="take_quiz" method="post" action = "/take_quiz">
-      
-        <!-- <h3>Select Subject</h3>
-        <select name="select_subject">
-        <option value="Computer Network">Computer Network</option>
-        <option value="Random Forest">Random Forest</option>
-        </select><br><br> -->
+        <form id="take_quiz" method="post" action="">
+            <p>{{question}}</p><br>
 
-        {% if mcq %}
-        {% for row in mcq %}
-        <p>{{row["Questions"]}}<br>
-            <input type="checkbox" name="Answer" value="option1">{{row["option1"]}}<br>
-            <input type="checkbox" name="Answer" value="option2">{{row["option2"]}}<br>
-            <input type="checkbox" name="Answer" value="option3">{{row["option3"]}}<br>
-            <input type="checkbox" name="Answer" value="option4">{{row["option4"]}}<br>
-            </p>
-        {% endfor %}
-        {% endif %}
-        <input type="submit" name="take_quiz" id="take_quiz" value="Submit">
-        <br><br>
-    </form>
-</div>
+            <input type="radio" name="option" id="option1" value="{{option_a}}">
+            <label for="option1">{{option_a}}</label><br>
+        
+            <input type="radio" name="option" id="option2" value="{{option_b}}">
+            <label for="option2">{{option_b}}</label><br>
+        
+            <input type="radio" name="option" id="option3" value="{{option_c}}">
+            <label for="option3">{{option_c}}</label><br>
+        
+            <input type="radio" name="option" id="option4" value="{{option_d}}">
+            <label for="option4">{{option_d}}</label><br>
+
+            <input type="submit" value="Check Answer" name="action">
+            {% if result %}
+                <p>{{result}}</p>
+                <input type="submit" value="Next Question" name="action">
+
+            {% endif %}
+            <br><br>
+        </form>
+    </div>
 </body>
 </html>
