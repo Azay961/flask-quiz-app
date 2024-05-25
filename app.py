@@ -40,7 +40,7 @@ def index():
         return render_template('index.html', question=question, option_a=option_a, option_b=option_b, option_c=option_c, option_d=option_d)
 
 def next_question():
-    path = r'D:\my_projects\Flask_quiz_app\flask-quiz-app\Questions\questions.csv'
+    path = r'D:\my_projects\Flask_quiz_app\flask-quiz-app\Questions\Questions.csv'
     df = pd.read_csv(path).sample(1).iloc[0]
     question = df['Question']
     option_a = df['Option A']
