@@ -1,10 +1,8 @@
-Question,Option A,Option B,Option C,Option D,Correct Answer
-What is the capital of France?,Berlin,Madrid,Paris,Rome,Paris
-Which planet is known as the Red Planet?,Earth,Mars,Jupiter,Saturn,Mars
-What is the chemical symbol for water?,H2,O2,CO2,H2O,H2O
-What is the capital of France?,Berlin,Madrid,Paris,Rome,Paris
-Which planet is known as the Red Planet?,Earth,Mars,Jupiter,Saturn,Mars
-What is the chemical symbol for water?,H2,O2,CO2,H2O,H2O
-What is the capital of France?,Berlin,Madrid,Paris,Rome,Paris
-Which planet is known as the Red Planet?,Earth,Mars,Jupiter,Saturn,Mars
-What is the chemical symbol for water?,H2,O2,CO2,H2O,H2O
+Subject,Question,Option A,Option B,Option C,Option D,Correct Answer
+Artificial Intelligence,Which is the first AI Programming Language ?,BASIC,FORTAN,IPL (inductive Logic Programming),LISP,LISP
+Artificial Intelligence,What is the main goal of AI ?,Simulating Human Intelligence,Enhancing human capabilities,Automating repetitive tasks,All of the above,All of the above
+Artificial Intelligence,What are the main two types of AI ?,Narrow AI & General AI,Strong AI & Weak AI,Super AI & Sub AI,AGI & ANI,AGI & ANI
+Artificial Intelligence,Which AI approach focuses  on developing machines that can imitate human cognitive abilities ?,Symbolic AI,Evolutionary AI,Cognitive AI,Neural AI,Cognitive AI
+Artificial Intelligence,What is the primary purpose of supervised Learning ?,Training machines to predict outcomes based on labeled data,Training machines to imitate human behaviour,Training machines to evolve and adapt,Training machines to learn from their own mistakes,Training machines to predict outcomes based on labeled data
+Artificial Intelligence,Which type of machine learning algorithm does not require labeled data for training?,supervised learning,Unsupervised learning,Reinforcement learning,Deep learning,Unsupervised learning
+Artificial Intelligence,Which of the following is NOT a common machine  learning algorithm used in AI ?,Decision Tree,Linear Regression,CNN,Deep belief Networks,Deep belief Networks
